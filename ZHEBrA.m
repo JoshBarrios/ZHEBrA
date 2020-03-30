@@ -59,8 +59,8 @@ for k = 3:length(d)
     [fish_n(k-2),plane_n,trial_n] = GetTrialInfo(fullfile(parent_path,d(k).name));
 end
 
-fish_num_inds = findseq(fish_n);
-
+%fish_num_inds = findseq(fish_n);
+fish_num_inds = [1,2,3,4,5,6,7,8]';
 %Ask if all fish share the same head location and tail length
 fish_con = questdlg('Do all fish share the same head location and tail length?', ...
     'Fish consistency', ...
@@ -144,7 +144,7 @@ switch fish_con
         for o = 1:length(all_fish_nums)
             fn = all_fish_nums(o);
             first_ind = find(fish_num_inds(:,1) == fn);
-            first_ind = fish_num_inds(first_ind(1),2);
+            %first_ind = fish_num_inds(first_ind(1),2);
             sub_path = d(first_ind+2).name;  %get name of sub folder for example image
             sub_dir = dir(fullfile(parent_path,sub_path));   %Get dir info for experiment folder
             num_subs = length(sub_dir);
@@ -348,7 +348,7 @@ for ku = 3:num_subs
     
     bhav_data(ku-2).stim_frames = stim_frames;
     
-    clearvars -except parent_path data_type fish_or head_loc tail_length ill_info d num_subs bhav_data stim_frames bouts bout_data notes fish_num_inds BG_sub clust
+    clearvars -except parent_path data_type fish_or head_loc tail_length ill_info d num_subs bhav_data stim_frames bouts notes fish_num_inds BG_sub clust
     
 end
 
