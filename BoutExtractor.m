@@ -24,7 +24,7 @@ abs_motion_trace = sum(abs(motion_trace),1);
 
 %% Find 80th percentile of motion data, apply it as a threshold to abs_motion_trace
 
-pos_thresh = prctile(abs(abs_motion_trace),50);
+pos_thresh = prctile(abs(abs_motion_trace),70);
 
 % pos_thresh = 0.05;
 
@@ -72,18 +72,18 @@ for k = 2:size(pos_bout_bool,2) - 1
 end
 
 
-fig_handle = figure;
-subplot(3,1,1)
-plot(abs(abs_motion_trace))
-title(strcat('Fish number ',num2str(fish_num),' Plane number ',num2str(plane_num),' Trial number ',num2str(trial_num)))
-ylabel('dMovement')
-subplot(3,1,2)
-plot(pos_bout_bool)
-ylabel('Bout Boolean')
-ylim([-1 2])
-subplot(3,1,3)
-plot(smooth_trace)
-ylabel('Tail Angle')
+% fig_handle = figure;
+% subplot(3,1,1)
+% plot(abs(abs_motion_trace))
+% title(strcat('Fish number ',num2str(fish_num),' Plane number ',num2str(plane_num),' Trial number ',num2str(trial_num)))
+% ylabel('dMovement')
+% subplot(3,1,2)
+% plot(pos_bout_bool)
+% ylabel('Bout Boolean')
+% ylim([-1 2])
+% subplot(3,1,3)
+% plot(smooth_trace)
+% ylabel('Tail Angle')
 
 % figure
 % subplot(3,1,1)
